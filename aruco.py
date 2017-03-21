@@ -1,8 +1,8 @@
 import numpy as np
 import cv2
 import cv2.aruco as aruco
-from myThread import myThread
-from cube import *
+#from myThread import myThread
+#from cube import *
 
 
 
@@ -45,8 +45,8 @@ projpoints = np.array([[0,0,0],[0,0,-1],[0,1,0],[0,1,-1],[1,0,0],[1,0,-1],[1,1,0
 #substitute = cv2.VideoCapture('vid.mp4')
 
 ret, frame = camera.read()
-size1 = frame.shape
-InitGL(size1[0],size1[1])
+#size1 = frame.shape
+#InitGL(size1[0],size1[1])
 
 # loop
 while True:
@@ -85,7 +85,7 @@ while True:
 
     # project the 3D axes onto the 2D image
                 imgpoints, jacobian = cv2.projectPoints(projpoints, rvec, tvec, camMatrix, distParams)
-                size1 = frame.shape
+                #size1 = frame.shape
 
                 #DrawGLScene()
 
