@@ -45,9 +45,9 @@ projpoints = np.array([[0,0,0],[0,0,-1],[0,1,0],[0,1,-1],[1,0,0],[1,0,-1],[1,1,0
 #substitute = cv2.VideoCapture('vid.mp4')
 
 ret, frame = camera.read()
-#size1 = frame.shape
-#InitGL(size1[0],size1[1])
-
+# size1 = frame.shape
+# InitGL(size1[0],size1[1])
+flag_min = 0
 # loop
 while True:
     ret, frame = camera.read()
@@ -102,6 +102,8 @@ while True:
 
 
                 substitute_image = cv2.imread(images_arr[1])
+                if (flag_min == 1):
+                    substitute_image = cv2.imread(images_arr[0])
 
                 size = substitute_image.shape
 
@@ -177,6 +179,8 @@ while True:
                 cv2.line(img, point1, point2, (0,0,255), 2)
                 frame =img
 
+                flag_min = 0
+
 
 
 
@@ -217,8 +221,10 @@ while True:
 
                                 img = frame
 
-                                cv2.putText(img, "minus", point, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1)
 
+
+                                cv2.putText(img, "minus", point, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1)
+                                flag_min = 1
 
                                 frame = img
 
